@@ -32,20 +32,20 @@
         },
       methods:{
           logout(){
-            const _this=this
+            const _this=this;
             _this.$axios.get("/logout",{
               headers:{
                 "Authorization":localStorage.getItem("token")
               }
             }).then(res=>{
-              _this.$store.commit("REMOVE_INFO")
+              _this.$store.commit("REMOVE_INFO");
               _this.$router.push("/login")
             })
           },
           created(){
             if(this.$store.getters.getUser.username){
-              this.user.username=this.$store.getters.getUser.username
-              this.user.avator=this.$store.getters.getUser.avator
+              this.user.username=this.$store.getters.getUser.username;
+              this.user.avator=this.$store.getters.getUser.avator;
 
               this.hashLogin=true
             }
